@@ -1,0 +1,51 @@
+form{
+    border: 4px solid brown;
+    background-color: blanchedalmond;
+    width:60%;
+    margin: auto;
+    padding: 20px;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 10px;
+}
+body {
+    background-color: blanchedalmond;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+.navbar-brand {
+    width: 4.5rem;
+}
+.nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: large;
+
+}
+label{
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.nav-link:hover {
+    background-color: burlywood;
+    /* padding: 1px 10px; */
+    color: black;
+    border-radius: 20px;
+}
+.btn,.btn:hover{
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+}
+textarea{
+    resize: none;
+}
+@media(max-width:900px) {
+    form{
+        width: 100%;
+    }
+    
+}

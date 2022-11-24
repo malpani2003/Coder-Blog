@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploaded Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    body {
+      background-color: rgb(237, 203, 159);
+    }
+
+    nav {
+      background-color: white;
+    }
+
+    form {
+      border: 4px solid rgb(246, 12, 12);
+      background-color: blanchedalmond;
+      width: 60%;
+      margin: auto;
+      padding: 20px;
+      font-size: larger;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    .nav-item {
+      margin-left: 10px;
+    }
+
+    .navbar-brand {
+      width: 4.5rem;
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: large;
+
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background-color: darkred;
+      /* padding: 1px 10px; */
+      color: white;
+      border-radius: 20px;
+    }
+
+    .btn,
+    .btn:hover {
+      background-color: brown;
+      color: white;
+      font-weight: bold;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    @media(max-width:900px) {
+      form {
+        width: 100%;
+      }
+
+    }
+
+    .post {
+      /* background-color: #f298a1;
+         */
+      background-color: antiquewhite;
+      width: 40%;
+      text-align: center;
+      margin: auto;
+      margin-top: 20px;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px darkred;
+
+
+    }
+
+    /* .post a{
+        color:white;
+            text-decoration: none;
+            margin-left:20px;
+
+      } */
+    .post button a {
+      color: white;
+      text-decoration: none;
+      font-size: larger;
+      margin-top: 20px;
+      /* margin-left:10px; */
+
+    }
+
+    .post img {
+      /* margin-top: 20px; */
+      width: 60%;
+      margin: auto;
+      border-radius: 20px;
+    }
+
+    .post button {
+      background-color: #dc3545;
+      border: none;
+      border-radius: 20px;
+      padding: 7px 20px;
+      margin-top: 20px;
+    }
+
+    .post button:hover {
+      background-color: black;
+      color: white;
+    }
+
+    @media(max-width:850px) {
+      .post {
+        width: 85%;
+      }
+    }
+
+    .post h4 {
+      font-style: italic;
+    }
+
+    .del_edit_btn {
+      color: navy;
+      text-decoration: none;
+      font-size: larger;
+      font-weight: bold;
+
+    }
+
+    .stats div {
+      background-color: antiquewhite;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 2px 2px 2px darkred;
+
+    }
+
+    @media(max-width:600px) {
+      .stats div {
+        width: 60%;
+        margin: auto;
+        margin-top: 20px;
+
+      }
+
+    }
+
+    .post img {
+      display: block;
+      width: 70%;
+      margin: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .head_page {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+
+    }
+
+    @media(max-width:992px) {
+      img {
+        width: 75%;
+        margin: auto;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+
+    }
+
+    form {
+
+      border: none;
+      padding: 0px;
+      background-color: rgb(237, 203, 159);
+    }
+
+    input[type="search"],
+    input[type="date"] {
+      border: 2px solid black;
+    }
+    .banner{
+      /* background-color: black;
+       */
+       background-image: url(https://images.pexels.com/photos/6424589/pexels-photo-6424589.jpeg?auto=compress&cs=tinysrgb&w=600);
+      padding: 40px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      /* filter: blur(4px);
+       */
+       /* opacity: 0.6; */
+    }
+    .heading{
+      background-color: rgb(255, 255, 255);
+      color: black;
+      text-align: center;
+      /* opacity: 1.2; */
+
+      padding: 10px;
+      /* padding: 0.4px; */
+      border-radius: 20px;
+      /* filter: blur(0px); */
+    }
+  </style>
+
+<body>
+  <%-include("header.ejs")%>
+  <div class="container text-center">
+    
+    <!-- <h1>All Posts</h1> -->
+    <!-- <div class="row head_page">
+        <div class="col-lg-3">
+          <img src="img/4782178.jpg" alt="">
+        </div>
+        <div class="col-lg-8 offset-lg-1">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error distinctio est dignissimos voluptas libero! Eum fugiat vero quae omnis nostrum iure iste ullam quo quisquam inventore aut iusto porro dolore quis esse dolorem, dignissimos impedit molestias suscipit neque! Id illo veritatis vel mollitia tempore labore assumenda, officiis earum consequuntur ipsa asperiores eum autem, ratione cumque nobis odio voluptatibus quo nemo! Nisi consequuntur error iusto ullam reprehenderit quo? Obcaecati veritatis soluta pariatur nostrum, vero vel nihil recusandae molestiae provident, praesentium voluptate.</p>
+
+
+      </div>
+       </div> -->
+    <!-- <div class="row head_page mb-5">
+        <div class="col-lg-3">
+          <img src="img/4782178.jpg" alt="">
+        </div>
+        <div class="col-lg-8 offset-lg-1 fw-bold">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error distinctio est dignissimos voluptas libero! Eum fugiat vero quae omnis nostrum iure iste ullam quo quisquam inventore aut iusto porro dolore quis esse dolorem, dignissimos impedit molestias suscipit neque! Id illo veritatis vel mollitia tempore labore assumenda, officiis earum consequuntur ipsa asperiores eum autem, ratione cumque nobis odio voluptatibus quo nemo! Nisi consequuntur error iusto ullam reprehenderit quo? Obcaecati veritatis soluta pariatur nostrum, vero vel nihil recusandae molestiae provident, praesentium voluptate.</p>
+
+          <button class="btn btn-success">Create a Post</button>
+
+          
+
+
+      </div> -->
+
+<!-- 
+    <h1>Statistics</h1>
+    <p class="fw-bold fs-5">These are few Number which show much much our blog website are powerfull </p>
+    <div class="row stats">
+      <div class="col-md-3">
+        <h4>Total Number of Post</h4>
+        <h1>70</h1>
+      </div>
+      <div class="col-md-3 offset-md-1">
+        <h4>Total User</h4>
+        <h1>70</h1>
+      </div>
+      <div class="col-md-3 offset-md-1">
+        <h4>Total Post Upload Today</h4>
+        <h1>70</h1>
+      </div>
+    </div> -->
+  </div>
+  <% count=0 %>
+
+  <div class="banner">
+   
+      <div class="heading">
+        <h1 class="text-center">Uploaded Post</h1>
+        <h4>Review these Post</h4>
+      </div>
+    </div>
+    
+    
+
+
+
+    <!-- <h4 class="text-center">Filter Post</h4> -->
+    <h2  class="text-center my-3">Total <%=post.length%> Post  are Added</h2>
+    <h5 class="text-center">Showing Results for  <em><%= search_item%></em> - <%=post.length%> results</h5>
+          <form action="/see_post" method="get" class="d-flex my-3">
+    
+            <input type="search" id="gsearch" name="gsearch" class="form-control mx-3" placeholder="Enter the Keyword to be Search">
+          </form>
+ 
+  <div class="box row">
+    <% post.forEach(element => { %>
+    <% if(count%2==0){ %>
+    <div class="col-lg-5 my-4 post">
+      <img src="/images/<%=element.image_path%>" alt="">
+      <!-- <img src="images/1666201720811-IMG-20210613-WA0002.jpg" alt=""> -->
+
+      <h1><em><%= element.title %></em> </h1>
+      <h4><%= element.author %></h4>
+      <h3><%= element.Summary %></h3>
+
+
+      <a href="/post/edit/<%=element.id%>" class="mx-3 del_edit_btn">Edit Post</a>
+      <a href="/post/delete/<%=element.id%>" class="mx-3 del_edit_btn">Delete Post</a>
+
+      <button><a href="/post/<%=element.id%>">View Post</a></button>
+      
+    <h5 class="my-1"><%= element.date %></h5>
+
+    </div>
+
+
+
+ 
+  <% }else{ %>
+  <div class="col-lg-5 offset-lg-2 my-4 post">
+    <img src="/images/<%=element.image_path%>" alt="">
+    <!-- <img src="/images/<%=element.image_path%>" alt=""> -->
+
+    
+    <h1><em><%= element.title %></em> </h1>
+    <h4><%= element.author %></h4>
+    <h3><%= element.Summary %></h3>
+    <a href="/post/edit/<%=element.id%>" class="mx-3 del_edit_btn">Edit Post</a>
+    <a href="/post/delete/<%=element.id%>" class="mx-3 del_edit_btn">Delete Post</a>
+    <button><a href="/post/<%=element.id%>">View Post</a></button>
+    <h5 class="my-1"><%= element.date %></h5>
+  </div>
+  <% } count++; %>
+  <% }); %>
+
+  </div>
+
+
+  </div>
+  <%-include("footer.ejs")%>
+
+</body>
+
+</html>
+

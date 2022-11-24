@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <style>
+    body {
+      background-color: rgb(237, 203, 159);
+    }
+
+    nav {
+      background-color: white;
+    }
+
+     form {
+      /* border: 2px solid rgb(246, 12, 12); */
+      background-color: antiquewhite;
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      font-size: larger;
+      font-weight: bold;
+      transition: 1s;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .nav-item {
+      margin-left: 10px;
+    }
+
+    .navbar-brand {
+      width: 4.5rem;
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: large;
+
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background-color: darkred;
+      /* padding: 1px 10px; */
+      color: white;
+      border-radius: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      border: 2px solid black;
+    }
+
+   
+    .btn,
+    .btn:hover {
+      background-color: brown;
+      color: white;
+      font-weight: bold;
+    }
+    /* .img_banner{
+        display:flex;
+        flex-direction: row;
+    }  */
+    .img_banner{
+        /* width:60%; */
+        text-align: center;
+        margin: auto;
+    } 
+    .img_banner a img{
+        width: 6%;
+        filter: grayscale(100);
+        margin-left: 20px;
+    }
+    .img_banner a img:hover{
+        filter: grayscale(0);
+
+    }
+    .register_img{
+      width: 16%;
+      margin: auto;
+      display: block;
+    }
+    @media(max-width:900px) {
+        form  {
+        width: 95%;
+      }
+      .img_banner a img{
+        width: 18%;
+        filter: grayscale(100);
+    }
+
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("header.ejs") %>
+  <div class="container-fluid my-5">
+
+      
+      
+      
+      <form action="/register" method="post">
+      
+
+        <img src="https://cdn3.iconfinder.com/data/icons/network-server-and-hosting-set-1/100/a-13-512.png" alt="" class="register_img">
+      
+            <h1 class="text-center">Register here </h1>
+            <h4 class="text-center">Please Fill the form to Sign Up</h4>
+         
+        
+  
+          
+        
+          <div class="row">
+       <div class="col-md-5">
+           <label for="name">Name</label>
+           <input type="text" id="name" name="name" required class="form-control" autocomplete="off" autocapitalize="words" maxlength="15" />
+
+       </div>
+       <div class="col-md-5 offset-md-2">
+
+           <label for="email">Email-id</label>
+           <input type="email" id="email" name="email" required class="form-control" autocomplete="off" maxlength="30" />
+       </div>
+
+       <div class="col-md-5">
+        
+        <label for="Password">Password</label>
+        <input type="text" id="Password" name="Password" required class="form-control" autocomplete="off" maxlength="30" />
+</div>
+<div class="col-md-5 offset-md-2">
+
+        <label for="Occupation">Occupation</label>
+        <input type="text" id="Occupation" name="Occupation" required class="form-control" autocomplete="off" maxlength="30" />
+    </div>
+        
+    <div class="col-12">
+
+        <label for="About">About</label>
+        <input type="text" id="About" name="About" required class="form-control" autocomplete="off" maxlength="30" />
+    </div>
+        
+    </div>
+    <input type="submit" value="Share Post" class="btn my-3">
+ 
+    <hr>
+    <h5>or Register with ....</h5>
+    <div class="img_banner">
+
+      <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Google_Plus_logo_%282015-2019%29.svg/2048px-Google_Plus_logo_%282015-2019%29.svg.png" alt=""></a> 
+
+
+
+      <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt=""></a> 
+    
+    </div>
+    <h5>Already Registered ? <a href="/login">Click to Login</a></h5>
+
+      </form>
+      
+  </div>
+  <%-include("footer.ejs")%>
+
+</body>
+
+</html>

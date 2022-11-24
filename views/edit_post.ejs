@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/public/style.css"> -->
+    <style>
+      body {
+      background-color: rgb(237, 203, 159);
+    }
+
+    nav {
+      background-color: white;
+    }
+
+        form {
+        border: 2px solid rgb(246, 12, 12);
+        background-color: antiquewhite;
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+        font-size: larger;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+         .nav-item {
+        margin-left: 10px;
+      }
+  
+      .navbar-brand {
+        width: 4.5rem;
+      }
+  
+      .nav-link {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: large;
+
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background-color: darkred;
+      /* padding: 1px 10px; */
+      color: white;
+      border-radius: 20px;
+    }
+      
+      textarea {
+        resize: none;
+      }
+  
+      @media(max-width:900px) {
+        form {
+          width: 90%;
+        }
+  
+      }
+      
+      .btn,
+      .btn:hover {
+        background-color: brown;
+        color: white;
+        font-weight: bold;
+      }
+  
+    </style>
+</head>
+<body>
+    <%- include("header.ejs") %>
+ <h1 class="text-center my-4">Update Post</h1>
+ <%post_id=post[0].id%>
+    <form action="/edit-post/<%=post_id%>" method="post">
+
+      <div class="row">
+        <div class="col-md-5">
+          <label for="name">Name of Creater</label>
+          <input type="text" id="name" name="name" required class="form-control"  autocomplete="off" autocapitalize="words" maxlength="15" value="<%=post[0].author%>" readonly/>
+         </div>
+         <div class="col-md-5 offset-md-2">
+          <label for="title">Title of Post</label>
+          <input type="text" id="title" name="title" required class="form-control" autocomplete="off" autocapitalize="words" maxlength="20" value="<%=post[0].title%>"/>
+    
+         </div>
+      </div>
+       
+      <label for="Summary">Summary of Post</label>
+        <input type="text" id="Summary" name="Summary" required class="form-control" autocomplete="off" autocapitalize="words" value="<%=post[0].Summary%>" />
+  
+  
+        <!-- <label for="website">Restaurant website</label>
+              <input type="text" id="website" name="website" class="form-control" autocomplete="off" /> -->
+              <!-- <label for="Category">Write Category</label> -->
+              
+  
+        <label for="description">Body of Post</label>
+        <textarea name="description" id="description" rows="5" required class="form-control" autocomplete="off"><%=post[0].body%></textarea>
+
+
+  
+        <!-- <label for="photo">Upload Photo</label>
+              <input type="file" name="photo" id="photo" class="form-control">-->
+        <input type="submit" value="Update Post" class="btn my-3">
+      </form>
+
+    <%- include("footer.ejs") %>
+    
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <style>
+    body {
+      background-color: rgb(237, 203, 159);
+    }
+
+    nav {
+      background-color: white;
+    }
+
+     form {
+      /* border: 2px solid rgb(246, 12, 12); */
+      background-color: antiquewhite;
+      width: 70%;
+      margin: auto;
+      padding: 20px;
+      font-size: larger;
+      font-weight: bold;
+      transition: 1s;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .nav-item {
+      margin-left: 10px;
+    }
+
+    .navbar-brand {
+      width: 4.5rem;
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: large;
+
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background-color: darkred;
+      /* padding: 1px 10px; */
+      color: white;
+      border-radius: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      border: 2px solid black;
+    }
+
+    @media(max-width:900px) {
+        form  {
+        width: 95%;
+      }
+
+    }
+    .btn,
+    .btn:hover {
+      background-color: brown;
+      color: white;
+      font-weight: bold;
+    }
+    /* .img_banner{
+        display:flex;
+        flex-direction: row;
+    }
+    .img_banner i{
+        width:60%;
+        margin: auto;
+    } */
+    .img_banner a{
+        width: 30%;
+        filter: grayscale(100);
+    }
+    .img_banner a:hover{
+        filter: grayscale(0);
+
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("header.ejs") %>
+  <div class="container-fluid my-5">
+
+   <!-- <% if(locals.error==1){ %>
+      <h4>Cannot Login</h4>
+   <% } %> -->
+      
+      <form action="/login" method="post">
+        <h1 class="text-center">Login here </h1>
+        <h4 class="text-center">Please Fill the form to Sign Up</h4>
+         
+<!--       
+           <label for="name">Name</label>
+           <input type="text" id="name" name="name" required class="form-control" autocomplete="off" autocapitalize="words" maxlength="15" /> -->
+
+      
+       
+           <label for="email">Email-id</label>
+           <input type="email" id="email" name="email" required class="form-control" maxlength="30" />
+      
+
+      
+        
+        <label for="Password">Password</label>
+        <input type="text" id="Password" name="Password" required class="form-control" maxlength="30" />
+
+        
+    
+        
+ 
+    <input type="submit" value="Login" class="btn my-3">
+    
+    <hr>
+    <h5>New User ? <a href="/register">Register Here</a></h5>
+      </form>
+      
+  </div>
+  <%-include("footer.ejs")%>
+
+</body>
+
+</html>

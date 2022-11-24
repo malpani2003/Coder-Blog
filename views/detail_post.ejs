@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post[0].title %></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    /* body{
+        font-family: GothamRounded-Bold,Arial,Helvetica,sans-serif;
+      } */
+    body {
+      background-color: rgb(241, 203, 153);
+    }
+
+    nav {
+      background-color: white;
+    }
+
+    form {
+      border: 2px solid rgb(246, 12, 12);
+      background-color: #FAEBD7;
+      width: 85%;
+      margin: auto;
+      padding: 20px;
+      font-size: larger;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    #description {
+      border: 2px solid black;
+    }
+
+    .nav-item {
+      margin-left: 10px;
+    }
+
+    .navbar-brand {
+      width: 4.5rem;
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: large;
+
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background-color: darkred;
+      /* padding: 1px 10px; */
+      color: white;
+      border-radius: 20px;
+    }
+
+    .btn,
+    .btn:hover {
+      background-color: brown;
+      color: white;
+      font-weight: bold;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    @media(max-width:900px) {
+      /* form {
+            width: 100%;
+          }
+     */
+    }
+
+    .post {
+      /* background-color: #f298a1; */
+      /* width:50%; */
+      /* text-align: center; */
+      margin: auto;
+      margin-top: 20px;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+
+    }
+
+    /* .post h3{
+            overflow-x: scroll;
+            
+        } */
+    .post button a {
+      color: white;
+      text-decoration: none;
+
+    }
+
+    .post button {
+      background-color: #dc3545;
+      border: none;
+      border-radius: 20px;
+      padding: 7px 20px;
+    }
+
+    .post button:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .post img {
+      width: 90%;
+      border-radius: 20px;
+      /* cursor: pointer; */
+      display: block;
+      margin: auto;
+      margin-bottom: 10px;
+      border: 2px solid black;
+    }
+
+    .post h1 {
+      font-size: 3rem;
+
+    }
+
+    .post h1:hover {
+      text-decoration: underline;
+      color: #dc3545;
+    }
+
+    .newsletter{
+      /* width: 100%; */
+      /* background-color: white; */
+      display:flex;
+      flex-direction: column;
+      
+      
+    }
+    .newsletter a{
+      text-align: left;
+      background-color: white;
+    color: black;
+      /* width: 50%; */
+
+    }
+
+    @media(max-width:900px) {
+
+      /* .post{
+            width:85%;
+           } */
+      .post img {
+        width: 99%;
+        margin: auto;
+      }
+
+      .post h1 {
+        text-align: center;
+      }
+
+      .newsletter a {
+        width: 85%;
+        margin: auto;
+    text-align: center;
+    background-color: white;
+    color: black;
+      }
+    }
+
+    .post button {
+      background-color: rgb(0, 0, 0);
+
+
+    }
+
+    .post button a {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+
+    }
+
+    .post button a:hover {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+
+    }
+
+    span {
+      background-color: #dc3545;
+      padding: 8px;
+      margin-left: 10px;
+      border-radius: 5px;
+      color: white;
+      margin-top: 50px;
+    }
+
+    .other_course {
+      margin: auto;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .other_course img {
+      border-radius: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      border: 2px solid black;
+    }
+
+    .other_course .card {
+      width: 30%;
+      background-color: antiquewhite;
+    }
+
+    .other_course p {
+      font-weight: 500;
+    }
+
+    .author_details {
+      background-color: white;
+      padding: 13px;
+      width: 85%;
+      margin: auto;
+      border: 2px solid black;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .author_details img {
+      width: 17%;
+    }
+
+    .col-lg-12 {
+      border: 2px solid black;
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("header.ejs") %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-9">
+
+        <div class="box container-fluid">
+          <!-- <button onclick="window.print()">Print</button> -->
+          <% post.forEach(element => { %>
+          <% console.log(element) %>
+          <div class="post row" id="post">
+            <div class="col-lg-12">
+              <img src="/images/<%=element.image_path%>" alt="">
+
+              <!-- <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt=""> -->
+              <h6 class="my-3 text-danger">Upload Date -: <%= element.date%> </h6>
+              <h6 class="my-3 text-danger">Edit Date -: <%= element.date%> </h6>
+
+
+              <!-- Like and Comment Button -->
+              <% author_name = element.author%>
+              <% post_id=element.id%>
+              <button><a href="/post/like/<%=element.id%>">
+                  <div class="badge bg-success mx-2"><%=element.likes%></div>Like
+                </a></button>
+              <!-- <button><a href="#">
+                  <div class="badge bg-success mx-2"><%=element.likes%></div>Comment
+                </a></button> -->
+
+
+              <h1 class="my-3"><%= element.title %> </h1>
+              <h4 class="fst-italic">By <%= element.author %></h4>
+              <p class="fs-5 fw-bold">Total <%= (element.body).length %> words</p>
+
+              <!-- <h3 class="my-2">Category</h3>
+                     -->
+              <!-- <br> -->
+             <% category=element.category %> 
+              <% (category).forEach(ele => { %>
+              <!-- <button class="btn btn-dark my-1"><a href="/filter_search?search=<%=ele%>"><%= ele %></a></button> -->
+              <%}); %> 
+              <!-- <h3><%= element.Summary %></h3>  -->
+              <br>
+              <p class="fs-4" id="text"><%= element.body %></p>
+
+              <button onclick="print_material()">Download Post</button>
+
+            </div>
+            <div class="col-lg-3">
+
+              <!-- <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="">
+                      <h4 class="my-3 text-danger"><%= element.date%></h4>
+                      <h3><%= element.title %> </h3> 
+                      <h4>By <%= element.authorid %></h4>  
+                      
+      
+                      <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="">
+                      <h4 class="my-3 text-danger"><%= element.date%></h4>
+                      <h3><%= element.title %> </h3> 
+                      <h4>By <%= element.authorid %></h4>   -->
+
+                     
+
+
+            </div>
+
+          </div>
+          <% }); %>
+        </div>
+
+
+      </div>
+      <div class="col-lg-3 newsletter my-5">
+
+        <!-- <form action="" method="post" class="newsletter_form">
+            <h3>NewsLetter SignUp</h3>
+        <p>Be the first to receive updates</p>
+        <input type="email" name="email" id="email" placeholder="Enter Email-id" class="form-control">
+        <input type="submit" value="Sign Up" class="btn btn-success my-3">
+          </form> -->
+          <!-- <form action="/see_post" method="get" class="d-flex my-3">
+    
+            <input type="search" id="gsearch" name="gsearch" class="form-control mx-3" placeholder="Enter the Keyword to be Search">
+          </form> -->
+          <h2 class="text-center">Category</h2>
+          <% (category).forEach(ele => { %>
+            <a href="/filter_search?search=<%=ele%>" class="btn btn-dark my-1"><%= ele %></a>
+            <%}); %>
+
+        <div class="ad">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+
+    <!-- <h1 class="text-center">Some Other course</h1>
+        <div class="row other_course">
+          <div class="col-lg-6 col-md-6 card">
+            <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="" class="w-50">
+            <p class="fs-4">Best of JavaScript</p>
+           
+          </div>
+          <div class="col-lg-5 offset-md-1 col-md-6 card">
+            <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="" class="w-50">
+            <p class="fs-4">For 12 years now, this Nigerian city celebrates annual Twins festival | See Pics</p>
+
+           
+          </div>
+          <div class="col-lg-6 col-md-6 card">
+            <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="" class="w-50">
+            <p class="fs-4">Asus Zenbook 17 Fold OLED: First look</p>
+
+           
+          </div>
+          <div class="col-lg-6 col-md-6 card">
+            <img src="https://api.sololearn.com/Uploads/10_basics_of_javascript_blog.png" alt="" class="w-50">
+            <p class="fs-4">Ayushmann Khurrana, Tahira Kashyap's Diwali bash was star-studded. See pics</p>
+
+           
+          </div>
+        </div> -->
+    <div class="div author_details">
+      <h1>About Creator</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="">
+      <h2><%=author_name%></h2>
+      <h4><%=user_detail.work%></h4>
+      <p><%=user_detail.about%></p>
+      <a href="/search_author/<%=author_name%> ">See all Post of <%=author_name%></a>
+    </div>
+
+    <!------------------- Comment Facility-------------------->
+    
+    <!-- <h2 class="text-center">Comments</h2>
+    
+  
+   -->
+  </div>
+
+
+
+
+
+
+
+  <!-- <form action="/uploadComment/<%=post_id%>">
+    
+    <h2>Leave a Comment</h2>
+    <p>Feel Free to Comment. Your Precious Comment Helps more improvement</p>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required class="form-control" autocomplete="off" autocapitalize="words" maxlength="15" />
+    <label for="description">Body of Post</label>
+    <textarea name="description" id="description" rows="5" required class="form-control" autocomplete="off" maxlength="50"></textarea>
+    <input type="submit" value="Leave Comment" class="btn my-3">
+
+  </form> -->
+  <%- include("footer.ejs") %>
+<script>
+  function print_material(){
+    var pervious_window=document.getElementsByTagName("body")
+    console.log(pervious_window);
+    var printContent = document.getElementById("post");
+    // var WinPrint = window.open('', '', 'width=900,height=650');
+    // window.document.write(printContent.innerHTML);
+    // window.print();
+    // window.document.write(pervious_window);
+    
+    // WinPrint.document.write(printContent.innerHTML);
+    // WinPrint.document.close();
+    // WinPrint.focus();
+    // WinPrint.print();
+    // WinPrint.close();
+
+  }
+</script>
+</body>
+
+</html>
